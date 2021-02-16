@@ -1,0 +1,1274 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="SpringBot连接Mysql, 神来之笔">
+    <meta name="description" content="一、SpringBoot集成Mybatis连接Mysql数据库配置1、引入依赖&amp;lt;!-- mybatis --&gt;
+&amp;lt;dependency&gt;
+    &amp;lt;groupId&gt;org.mybatis.spring.boot&amp;lt;/g">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>SpringBot连接Mysql | 神来之笔</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">神来之笔</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">神来之笔</div>
+        <div class="logo-desc">
+            
+            生活不易，快乐前行
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/huanhuanlove" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/huanhuanlove" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2020/02/08/4t7cVIDBfJ6yelE.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        SpringBot连接Mysql
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/mybatis/" target="_blank">
+                                <span class="chip bg-color">mybatis</span>
+                            </a>
+                        
+                            <a href="/tags/springBoot/" target="_blank">
+                                <span class="chip bg-color">springBoot</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/mybatis/" class="post-category" target="_blank">
+                                mybatis
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-02-02
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        1.6k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        8 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="一、SpringBoot集成Mybatis连接Mysql数据库配置"><a href="#一、SpringBoot集成Mybatis连接Mysql数据库配置" class="headerlink" title="一、SpringBoot集成Mybatis连接Mysql数据库配置"></a>一、SpringBoot集成Mybatis连接Mysql数据库配置</h2><h3 id="1、引入依赖"><a href="#1、引入依赖" class="headerlink" title="1、引入依赖"></a>1、引入依赖</h3><pre class=" language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!-- mybatis --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.mybatis.spring.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-spring-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.0.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+<h4 id="properties版"><a href="#properties版" class="headerlink" title="properties版"></a>properties版</h4><p>2、增加配置</p>
+<pre class=" language-shell"><code class="language-shell">###连接数据库
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.datasource.url=jdbc:mysql://127.0.0.1:3306/kang?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&allowMultiQueries=true&useSSL=false&nullCatalogMeansCurrent=true 
+spring.datasource.username=root
+spring.datasource.password=root
+
+spring.jpa.properties.hibernate.hbm2ddl.auto=update
+spring.jpa.show-sql=true
+spring.jpa.database=MYSQL
+
+##配置Mapper*.xml位置
+mybatis.mapper-locations=classpath:mybatis/mapper/*.xml
+##配置实体类位置，设置别名
+mybatis.type-aliases-package=com.kang.entity
+##驼峰命名
+mybatis.configuration.map-underscore-to-camel-case=true
+
+
+###配置分页插件
+pagehelper.helperDialec=mysql
+pagehelper.reasonable: true
+pagehelper.supportMethodsArguments: true
+pagehelper.params: count=countSql
+
+###打印SQL
+logging.level.[com.kang.dao]=debug   --[包名]
+
+###日志输出位置     
+response.handler.enabled=true
+logging.file=/usr/local/tomcat/logs/user.info
+logging.level.org.springframework.web=debug</code></pre>
+<h4 id="yml版"><a href="#yml版" class="headerlink" title="yml版"></a>yml版</h4><p>2、增加配置</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true">###连接数据库</span>
+spring： 
+    datasource： 
+        driver<span class="token punctuation">-</span>class<span class="token punctuation">-</span>name： com.mysql.jdbc.Driver
+        url： jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//127.0.0.1<span class="token punctuation">:</span>3306/kang<span class="token punctuation">?</span>autoReconnect=true<span class="token important">&amp;useUnicode</span>=true<span class="token important">&amp;characterEncoding</span>=utf<span class="token punctuation">-</span>8<span class="token important">&amp;serverTimezone</span>=UTC<span class="token important">&amp;allowMultiQueries</span>=true<span class="token important">&amp;useSSL</span>=false<span class="token important">&amp;nullCatalogMeansCurrent</span>=true 
+        username： root
+        password： root
+    <span class="token key atrule">jpa</span><span class="token punctuation">:</span>
+        <span class="token key atrule">properties</span><span class="token punctuation">:</span>
+          <span class="token key atrule">hibernate</span><span class="token punctuation">:</span>
+            <span class="token key atrule">hbm2ddl</span><span class="token punctuation">:</span> 
+              <span class="token key atrule">auto</span><span class="token punctuation">:</span> update
+        <span class="token key atrule">show-sql</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+        <span class="token key atrule">database</span><span class="token punctuation">:</span> mysql
+
+<span class="token comment" spellcheck="true">##Mybatis配置    </span>
+<span class="token key atrule">mybatis</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type-aliases-package</span><span class="token punctuation">:</span> com.kang.entity                   <span class="token comment" spellcheck="true">##定义所有操作类的别名所在包</span>
+  <span class="token key atrule">mapper-locations</span><span class="token punctuation">:</span>                                     <span class="token comment" spellcheck="true">##所有的mapper映射文件</span>
+    <span class="token punctuation">-</span> classpath<span class="token punctuation">:</span>mybatis/mapper/*.xml
+  <span class="token key atrule">configuration</span><span class="token punctuation">:</span> 
+    <span class="token key atrule">map-underscore-to-camel-case</span><span class="token punctuation">:</span> <span class="token boolean important">true                    </span><span class="token comment" spellcheck="true">##驼峰命名</span>
+
+<span class="token comment" spellcheck="true">###配置分页插件</span>
+<span class="token key atrule">pagehelper</span><span class="token punctuation">:</span> 
+    <span class="token key atrule">helperDialec</span><span class="token punctuation">:</span> mysql
+    <span class="token key atrule">reasonable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">supportMethodsArguments</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">params</span><span class="token punctuation">:</span> 
+        <span class="token key atrule">count</span><span class="token punctuation">:</span> countSql
+
+<span class="token comment" spellcheck="true">###打印SQL</span>
+<span class="token key atrule">logging</span><span class="token punctuation">:</span>
+  <span class="token key atrule">level</span><span class="token punctuation">:</span>
+     <span class="token key atrule">com.kang.dao</span> <span class="token punctuation">:</span> debug
+
+<span class="token comment" spellcheck="true">###日志输出位置     </span>
+<span class="token key atrule">response</span><span class="token punctuation">:</span> 
+    <span class="token key atrule">handler</span><span class="token punctuation">:</span> 
+        <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span class="token key atrule">logging</span><span class="token punctuation">:</span> 
+    <span class="token key atrule">file</span><span class="token punctuation">:</span> /usr/local/tomcat/logs/user.info
+    <span class="token key atrule">level</span><span class="token punctuation">:</span> 
+        <span class="token key atrule">org.springframework.web</span><span class="token punctuation">:</span> debug</code></pre>
+<h2 id="二、SpringBoot集成Mybatis-plus连接Mysql数据库配置"><a href="#二、SpringBoot集成Mybatis-plus连接Mysql数据库配置" class="headerlink" title="二、SpringBoot集成Mybatis-plus连接Mysql数据库配置"></a>二、SpringBoot集成Mybatis-plus连接Mysql数据库配置</h2><h3 id="1、引入依赖-1"><a href="#1、引入依赖-1" class="headerlink" title="1、引入依赖"></a>1、引入依赖</h3><pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.baomidou<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>mybatis-plus-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>3.1.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+<h4 id="properties版-1"><a href="#properties版-1" class="headerlink" title="properties版"></a>properties版</h4><p>2、增加配置</p>
+<pre class=" language-shell"><code class="language-shell">###连接数据库
+spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+spring.datasource.url=jdbc:mysql://127.0.0.1:3306/kang?autoReconnect=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&allowMultiQueries=true&useSSL=false&nullCatalogMeansCurrent=true 
+spring.datasource.username=root
+spring.datasource.password=root
+
+###mybatis-plus相关配置
+##项目Mapper.xml存放位置，classpath:*****，表示项目resources文件夹下
+mybatis-plus.mapper-locations=classpath:mybatis/mapper/*.xml
+##实体类存放位置
+mybatis-plus.type-aliases-package=com.kang.entity
+##驼峰下划线转换
+mybatis-plus.global-config.db-column-underline=true
+##刷新mapper 调试神器
+mybatis-plus.global-config.refresh-mapper=true
+##数据库大写下划线转换
+##mybatis-plus.global-config.capital-mode=true
+##序列接口实现类配置
+##mybatis-plus.global-config.key-generator=com.baomidou.springboot.xxx
+##逻辑删除配置
+mybatis-plus.global-config.logic-delete-value=0
+mybatis-plus.global-config.logic-not-delete-value=1
+mybatis-plus.global-config.sql-injector=com.baomidou.mybatisplus.mapper.LogicSqlInjector
+##驼峰命名
+mybatis-plus.configuration.map-underscore-to-camel-case=true
+mybatis-plus.configuration.cache-enabled=false
+## 数据库类型设置
+mybatis-plus.global-config.db-config.db-type=mysql
+mybatis-plus.global-config.db-config.column-underline=true
+mybatis-plus.global-config.db-config.logic-delete-value=true
+mybatis-plus.global-config.db-config.logic-not-delete-value=false</code></pre>
+<h4 id="yml版-1"><a href="#yml版-1" class="headerlink" title="yml版"></a>yml版</h4><p>2、增加配置</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true">###连接数据库</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
+    <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//127.0.0.1<span class="token punctuation">:</span>3306/activiti<span class="token punctuation">?</span>autoReconnect=true<span class="token important">&amp;useUnicode</span>=true<span class="token important">&amp;characterEncoding</span>=utf<span class="token punctuation">-</span>8<span class="token important">&amp;serverTimezone</span>=UTC<span class="token important">&amp;allowMultiQueries</span>=true<span class="token important">&amp;useSSL</span>=false<span class="token important">&amp;nullCatalogMeansCurrent</span>=true
+    <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.jdbc.Driver
+    <span class="token key atrule">username</span><span class="token punctuation">:</span> root
+    <span class="token key atrule">password</span><span class="token punctuation">:</span> root
+  <span class="token key atrule">jpa</span><span class="token punctuation">:</span>
+    <span class="token key atrule">properties</span><span class="token punctuation">:</span>
+      <span class="token key atrule">hibernate</span><span class="token punctuation">:</span>
+        <span class="token key atrule">hbm2ddl</span><span class="token punctuation">:</span> 
+          <span class="token key atrule">auto</span><span class="token punctuation">:</span> update
+    <span class="token key atrule">show-sql</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+    <span class="token key atrule">database</span><span class="token punctuation">:</span> mysql
+
+<span class="token comment" spellcheck="true">###mybatis-plus相关配置</span>
+<span class="token comment" spellcheck="true">##配置Mapper*.xml位置</span>
+<span class="token key atrule">mybatis-plus</span><span class="token punctuation">:</span>
+    <span class="token key atrule">type-aliases-package</span><span class="token punctuation">:</span> com.kang.entity
+    <span class="token key atrule">mapper-locations</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>mapper/*.xml
+    <span class="token comment" spellcheck="true">#此项设置均为默认值[可不设置]</span>
+    <span class="token key atrule">global-config</span><span class="token punctuation">:</span> 
+        <span class="token key atrule">db-config</span><span class="token punctuation">:</span> 
+            <span class="token comment" spellcheck="true">##主键类型 AUTO:"数据库ID自增" INPUT:"用户输入ID",ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";</span>
+            <span class="token key atrule">id-type</span><span class="token punctuation">:</span> auto
+            <span class="token comment" spellcheck="true">##字段策略 IGNORED:"忽略判断"  NOT_NULL:"非 NULL 判断")  NOT_EMPTY:"非空判断"</span>
+            <span class="token key atrule">field-strategy</span><span class="token punctuation">:</span> NOT_EMPTY
+            <span class="token comment" spellcheck="true">##数据库类型</span>
+            <span class="token key atrule">db-type</span><span class="token punctuation">:</span> MYSQL
+    configuration： 
+        <span class="token comment" spellcheck="true">##是否开启自动驼峰命名规则映射:从数据库列名到Java属性驼峰命名的类似映射</span>
+        <span class="token key atrule">map-underscore-to-camel-case</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+        <span class="token comment" spellcheck="true">##如果查询结果中包含空值的列，则 MyBatis 在映射的时候，不会映射这个字段</span>
+        <span class="token key atrule">call-setters-on-nulls</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+        <span class="token comment" spellcheck="true">##这个配置会将执行的sql打印出来，在开发或测试的时候可以用</span>
+        <span class="token key atrule">log-impl</span><span class="token punctuation">:</span> org.apache.ibatis.logging.stdout.StdOutImpl
+
+<span class="token comment" spellcheck="true">###日志输出位置     </span>
+<span class="token key atrule">response</span><span class="token punctuation">:</span> 
+    <span class="token key atrule">handler</span><span class="token punctuation">:</span> 
+        <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span class="token key atrule">logging</span><span class="token punctuation">:</span> 
+    <span class="token key atrule">file</span><span class="token punctuation">:</span> /usr/local/tomcat/logs/user.info
+    <span class="token key atrule">level</span><span class="token punctuation">:</span> 
+        <span class="token key atrule">org.springframework.web</span><span class="token punctuation">:</span> debug</code></pre>
+<h2 id="三、配置阿里数据库连接池"><a href="#三、配置阿里数据库连接池" class="headerlink" title="三、配置阿里数据库连接池"></a>三、配置阿里数据库连接池</h2><h3 id="1、引入依赖-2"><a href="#1、引入依赖-2" class="headerlink" title="1、引入依赖"></a>1、引入依赖</h3><pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>druid-spring-boot-starter<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.1.10<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+<h4 id="Mybatis版"><a href="#Mybatis版" class="headerlink" title="Mybatis版"></a>Mybatis版</h4><p>2、增加配置</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true">###阿里连接池配置</span>
+<span class="token key atrule">spring</span><span class="token punctuation">:</span>
+  <span class="token key atrule">datasource</span><span class="token punctuation">:</span>
+    <span class="token key atrule">druid</span><span class="token punctuation">:</span>
+      <span class="token key atrule">username</span><span class="token punctuation">:</span> root
+      <span class="token key atrule">password</span><span class="token punctuation">:</span> <span class="token number">123456</span>
+      <span class="token key atrule">url</span><span class="token punctuation">:</span> jdbc<span class="token punctuation">:</span>mysql<span class="token punctuation">:</span>//127.0.0.1<span class="token punctuation">:</span>3306/kang<span class="token punctuation">?</span>autoReconnect=true<span class="token important">&amp;useUnicode</span>=true<span class="token important">&amp;characterEncoding</span>=utf<span class="token punctuation">-</span>8<span class="token important">&amp;serverTimezone</span>=UTC<span class="token important">&amp;allowMultiQueries</span>=true<span class="token important">&amp;useSSL</span>=false<span class="token important">&amp;nullCatalogMeansCurrent</span>=true 
+      <span class="token key atrule">driver-class-name</span><span class="token punctuation">:</span> com.mysql.jdbc.Driver
+      <span class="token key atrule">initialSize</span><span class="token punctuation">:</span> <span class="token number">5</span>
+      <span class="token key atrule">minIdle</span><span class="token punctuation">:</span> <span class="token number">5</span>
+      <span class="token key atrule">maxActive</span><span class="token punctuation">:</span> <span class="token number">20</span>
+      <span class="token key atrule">maxWait</span><span class="token punctuation">:</span> <span class="token number">60000</span>
+      <span class="token key atrule">poolPreparedStatements</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+      <span class="token key atrule">maxPoolPreparedStatementPerConnectionSize</span><span class="token punctuation">:</span> <span class="token number">20</span>
+      <span class="token key atrule">useGlobalDataSourceStat</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+      <span class="token key atrule">connectionProperties</span><span class="token punctuation">:</span> druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
+<span class="token key atrule">mybatis</span><span class="token punctuation">:</span>
+  <span class="token key atrule">config-location</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>mybatis/mybatis<span class="token punctuation">-</span>config.xml
+  <span class="token key atrule">mapper-locations</span><span class="token punctuation">:</span> classpath<span class="token punctuation">:</span>mybatis/mapper/*.xml</code></pre>
+<p>3、添加配置类<br>mybatis-config.xml</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8" ?></span>
+<span class="token doctype">&lt;!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd"></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>settings</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>setting</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>useGeneratedKeys<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>setting</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>useColumnLabel<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>setting</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>mapUnderscoreToCamelCase<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>settings</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span></code></pre>
+<h4 id="Mybatis-plus版"><a href="#Mybatis-plus版" class="headerlink" title="Mybatis-plus版"></a>Mybatis-plus版</h4><p>2、增加配置</p>
+<pre class=" language-nix"><code class="language-nix">spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>type<span class="token operator">=</span>com<span class="token punctuation">.</span>alibaba<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>pool<span class="token punctuation">.</span>DruidDataSource
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>driver<span class="token operator">-</span>class<span class="token operator">-</span>name<span class="token operator">=</span>com<span class="token punctuation">.</span>mysql<span class="token punctuation">.</span>jdbc<span class="token punctuation">.</span>Driver
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>url<span class="token operator">=</span>jdbc<span class="token punctuation">:</span><span class="token url">mysql://127.0.0.1:3306/kang?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=UTC&amp;allowMultiQueries=true&amp;useSSL=false&amp;nullCatalogMeansCurrent=true</span> 
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>username<span class="token operator">=</span>root
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>password<span class="token operator">=</span>root
+
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>initial<span class="token operator">-</span>size<span class="token operator">=</span><span class="token number">5</span>
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>min<span class="token operator">-</span>idle<span class="token operator">=</span><span class="token number">5</span>
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>maxActive<span class="token operator">=</span><span class="token number">20</span>
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>maxWait<span class="token operator">=</span><span class="token number">60000</span>
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>poolPreparedStatements<span class="token operator">=</span><span class="token boolean">true</span>
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>maxPoolPreparedStatementPerConnectionSize<span class="token operator">=</span><span class="token number">20</span>
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>filters<span class="token operator">=</span>stat<span class="token punctuation">,</span>slf4j
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>connectionProperties<span class="token operator">=</span>druid<span class="token punctuation">.</span>stat<span class="token punctuation">.</span>mergeSql\<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span>druid<span class="token punctuation">.</span>stat<span class="token punctuation">.</span>slowSqlMillis\<span class="token operator">=</span><span class="token number">5000</span>
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>web<span class="token operator">-</span>stat<span class="token operator">-</span><span class="token function">filter</span><span class="token punctuation">.</span>enabled<span class="token operator">=</span><span class="token boolean">true</span>
+<span class="token url">spring.datasource.druid.web-stat-filter.url-pattern=/</span>*
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>web<span class="token operator">-</span>stat<span class="token operator">-</span><span class="token function">filter</span><span class="token punctuation">.</span>exclusions<span class="token operator">=</span>*<span class="token punctuation">.</span>js<span class="token punctuation">,</span>*<span class="token punctuation">.</span>gif<span class="token punctuation">,</span>*<span class="token punctuation">.</span>jpg<span class="token punctuation">,</span>*<span class="token punctuation">.</span>bmp<span class="token punctuation">,</span>*<span class="token punctuation">.</span>png<span class="token punctuation">,</span>*<span class="token punctuation">.</span>css<span class="token punctuation">,</span>*<span class="token punctuation">.</span>ico<span class="token punctuation">,</span><span class="token url">/druid/</span>*
+<span class="token url">spring.datasource.druid.stat-view-servlet.url-pattern=/druid/</span>*
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>stat<span class="token operator">-</span>view<span class="token operator">-</span>servlet<span class="token punctuation">.</span>allow<span class="token operator">=</span><span class="token number">127</span><span class="token punctuation">.</span><span class="token number">0</span><span class="token punctuation">.</span><span class="token number">0</span><span class="token punctuation">.</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">192</span><span class="token punctuation">.</span><span class="token number">168</span><span class="token punctuation">.</span><span class="token number">152</span><span class="token punctuation">.</span><span class="token number">12</span>
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>stat<span class="token operator">-</span>view<span class="token operator">-</span>servlet<span class="token punctuation">.</span>deny<span class="token operator">=</span><span class="token number">192</span><span class="token punctuation">.</span><span class="token number">168</span><span class="token punctuation">.</span><span class="token number">1</span><span class="token punctuation">.</span><span class="token number">73</span>
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>stat<span class="token operator">-</span>view<span class="token operator">-</span>servlet<span class="token punctuation">.</span>reset<span class="token operator">-</span>enable<span class="token operator">=</span><span class="token boolean">false</span>
+<span class="token comment" spellcheck="true">##Druid 管理账号</span>
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>stat<span class="token operator">-</span>view<span class="token operator">-</span>servlet<span class="token punctuation">.</span>login<span class="token operator">-</span>username<span class="token operator">=</span>kang
+<span class="token comment" spellcheck="true">##Druid 管理密码</span>
+spring<span class="token punctuation">.</span>datasource<span class="token punctuation">.</span>druid<span class="token punctuation">.</span>stat<span class="token operator">-</span>view<span class="token operator">-</span>servlet<span class="token punctuation">.</span>login<span class="token operator">-</span>password<span class="token operator">=</span>kang
+<span class="token comment" spellcheck="true">##com.simple.spring.boot.mapper 该包打印DEBUG级别日志</span>
+logging<span class="token punctuation">.</span>level<span class="token punctuation">.</span>com<span class="token punctuation">.</span>kang<span class="token punctuation">.</span>mapper<span class="token operator">=</span>debug
+
+<span class="token comment" spellcheck="true">##mybatis plus mapper文件路径</span>
+<span class="token url">mybatis-plus.mapperLocations=classpath:/mybatis/mapper/</span>*<span class="token punctuation">.</span>xml
+<span class="token comment" spellcheck="true">##mybaits plus 实体类路径</span>
+mybatis<span class="token operator">-</span>plus<span class="token punctuation">.</span>typeAliasesPackage<span class="token operator">=</span>com<span class="token punctuation">.</span>kang<span class="token punctuation">.</span>entity
+mybatis<span class="token operator">-</span>plus<span class="token punctuation">.</span>typeEnumsPackage<span class="token operator">=</span>
+<span class="token comment" spellcheck="true">##数据库相关配置</span>
+<span class="token comment" spellcheck="true">##主键类型 AUTO:"数据库ID自增", INPUT:"用户输入ID",ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";</span>
+mybatis<span class="token operator">-</span>plus<span class="token punctuation">.</span>global<span class="token operator">-</span>config<span class="token punctuation">.</span>db<span class="token operator">-</span>config<span class="token punctuation">.</span>id<span class="token operator">-</span>type<span class="token operator">=</span>UUID
+<span class="token comment" spellcheck="true">##字段策略 IGNORED:"忽略判断",NOT_NULL:"非 NULL 判断"),NOT_EMPTY:"非空判断"</span>
+mybatis<span class="token operator">-</span>plus<span class="token punctuation">.</span>global<span class="token operator">-</span>config<span class="token punctuation">.</span>db<span class="token operator">-</span>config<span class="token punctuation">.</span>field<span class="token operator">-</span>strategy<span class="token operator">=</span>not_empty
+<span class="token comment" spellcheck="true">#驼峰下划线转换</span>
+mybatis<span class="token operator">-</span>plus<span class="token punctuation">.</span>global<span class="token operator">-</span>config<span class="token punctuation">.</span>db<span class="token operator">-</span>config<span class="token punctuation">.</span>column<span class="token operator">-</span>underline<span class="token operator">=</span><span class="token boolean">true</span>
+<span class="token comment" spellcheck="true">##数据库大写下划线转换</span>
+<span class="token comment" spellcheck="true">##capital-mode: true</span>
+<span class="token comment" spellcheck="true">##逻辑删除配置</span>
+mybatis<span class="token operator">-</span>plus<span class="token punctuation">.</span>global<span class="token operator">-</span>config<span class="token punctuation">.</span>db<span class="token operator">-</span>config<span class="token punctuation">.</span>logic<span class="token operator">-</span>delete<span class="token operator">-</span>value<span class="token operator">=</span><span class="token number">0</span>
+mybatis<span class="token operator">-</span>plus<span class="token punctuation">.</span>global<span class="token operator">-</span>config<span class="token punctuation">.</span>db<span class="token operator">-</span>config<span class="token punctuation">.</span>logic<span class="token operator">-</span>not<span class="token operator">-</span>delete<span class="token operator">-</span>value<span class="token operator">=</span> <span class="token number">1</span>
+<span class="token comment" spellcheck="true">##mybatis-plus.global-config.db-config.db-type= sqlserver</span>
+<span class="token comment" spellcheck="true">##刷新mapper 调试神器</span>
+mybatis<span class="token operator">-</span>plus<span class="token punctuation">.</span>global<span class="token operator">-</span>config<span class="token punctuation">.</span>refresh<span class="token operator">=</span><span class="token boolean">true</span>
+<span class="token comment" spellcheck="true">##原生配置</span>
+mybatis<span class="token operator">-</span>plus<span class="token punctuation">.</span>configuration<span class="token punctuation">.</span><span class="token function">map</span><span class="token operator">-</span>underscore<span class="token operator">-</span>to<span class="token operator">-</span>camel<span class="token operator">-</span>case<span class="token operator">=</span><span class="token boolean">true</span>
+mybatis<span class="token operator">-</span>plus<span class="token punctuation">.</span>configuration<span class="token punctuation">.</span>cache<span class="token operator">-</span>enabled<span class="token operator">=</span><span class="token boolean">false</span>
+mybatis<span class="token operator">-</span>plus<span class="token punctuation">.</span>configuration<span class="token punctuation">.</span>call<span class="token operator">-</span>setters<span class="token operator">-</span>on<span class="token operator">-</span>nulls <span class="token operator">=</span><span class="token boolean">true</span></code></pre>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《SpringBot连接Mysql》
+                </span> 由
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/02/02/springbot-lian-jie-mysql/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                kang
+            </a> 采用
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh">
+                知识共享署名 4.0 国际许可协议
+            </a>进行许可。
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+        <!-- Gitalk 评论 start  -->
+<!-- Link Gitalk 的支持文件  -->
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+<script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+
+<div id="gitalk-container"></div>
+    <script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: 'a9a041bed3e85809d813',
+        clientSecret: 'c7e2073dfd96ccfe152e0052e0533bcc1576e96e',
+        repo: 'huanhuanlove.github.io',
+        owner: 'huanhuanlove',
+        admin: ['huanhuanlove'],
+        id: '{{ page.date }}',
+    
+    });
+    gitalk.render('gitalk-container');
+</script>
+<!-- Gitalk end -->
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/02/03/sql-you-hua/">
+                    <div class="card-image">
+                        
+                        <img src="https://i.loli.net/2019/11/29/1FnZLAVw5ypN97W.jpg" class="responsive-img" alt="Sql优化">
+                        
+                        <span class="card-title">Sql优化</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            写出一手优雅而高效的sql，是通向每一个程序大牛的必经之路。
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/mysql/" class="post-category" target="_blank">
+                                    mysql
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/mysql/" target="_blank">
+                        <span class="chip bg-color">mysql</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/01/11/mybatis-zhi-cao-zuo-ddl-yu-ju/">
+                    <div class="card-image">
+                        
+                        <img src="https://i.loli.net/2019/11/29/1FnZLAVw5ypN97W.jpg" class="responsive-img" alt="Mybatis之操作DDL语句">
+                        
+                        <span class="card-title">Mybatis之操作DDL语句</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Mybatis之操作DDL语句,用小demo打开你从未见过的世界。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-01-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/mybatis/" class="post-category" target="_blank">
+                                    mybatis
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java/" target="_blank">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/mybatis/" target="_blank">
+                        <span class="chip bg-color">mybatis</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('30')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 神来之笔<br />'
+            + '作者: 康怀安<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://huanhuanlove.github.io/" target="_blank">康怀安</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/huanhuanlove/huanhuanlove.github.io" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">41.5k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://huanhuanlove.github.io/" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+		<i class="fa fa-github"></i>
+	</a>
+
+
+
+	<a href="https://huanhuanlove.github.io/" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+		<i class="fa fa-envelope-open"></i>
+	</a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1468140258" class="tooltipped" data-tooltip="QQ联系我: 1468140258" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

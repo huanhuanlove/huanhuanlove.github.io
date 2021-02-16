@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>神来之笔</title>
+  
+  <subtitle>迷失在技术的海洋中</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://huanhuanlove.github.io/"/>
+  <updated>2021-02-09T13:42:03.144Z</updated>
+  <id>https://huanhuanlove.github.io/</id>
+  
+  <author>
+    <name>康怀安</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小心思</title>
+    <link href="https://huanhuanlove.github.io/2021/02/09/you-wo-you-ta/"/>
+    <id>https://huanhuanlove.github.io/2021/02/09/you-wo-you-ta/</id>
+    <published>2021-02-08T22:06:06.000Z</published>
+    <updated>2021-02-09T13:42:03.144Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;有我，有她&quot;&gt;&lt;a href=&quot;#有我，有她&quot; class=&quot;headerlink&quot; title=&quot;有我，有她&quot;&gt;&lt;/a&gt;有我，有她&lt;/h2&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+      <category term="个人" scheme="https://huanhuanlove.github.io/categories/%E4%B8%AA%E4%BA%BA/"/>
+    
+    
+      <category term="加密倒计时" scheme="https://huanhuanlove.github.io/tags/%E5%8A%A0%E5%AF%86%E5%80%92%E8%AE%A1%E6%97%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sonar</title>
+    <link href="https://huanhuanlove.github.io/2020/10/08/sonar/"/>
+    <id>https://huanhuanlove.github.io/2020/10/08/sonar/</id>
+    <published>2020-10-08T14:06:21.000Z</published>
+    <updated>2020-11-07T01:49:39.652Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1、启动，sonarqube-7.9.1\bin\windows-x86-64\StartSonar.bat&lt;/p&gt;
+&lt;p&gt;2、汉化，Chinese Pack插件&lt;/p&gt;
+&lt;p&gt;3、手动创建一个数据库（如：sonar）&lt;/p&gt;
+&lt;p&gt;4、配置数据库&lt;br&gt;   
+        
+      
+    
+    </summary>
+    
+      <category term="sonar" scheme="https://huanhuanlove.github.io/categories/sonar/"/>
+    
+    
+      <category term="sonar" scheme="https://huanhuanlove.github.io/tags/sonar/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Nginx从入门到入土</title>
+    <link href="https://huanhuanlove.github.io/2020/09/07/nginx-cong-ru-men-dao-ru-tu/"/>
+    <id>https://huanhuanlove.github.io/2020/09/07/nginx-cong-ru-men-dao-ru-tu/</id>
+    <published>2020-09-07T01:32:45.000Z</published>
+    <updated>2020-11-12T08:02:17.652Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;linux下安装nginx&lt;/p&gt;
+&lt;p&gt;1、下载压缩包&lt;/p&gt;
+&lt;p&gt;2、安装依赖&lt;br&gt;    yum -y install gcc pcre-devel zlib-devel openssl openssl-devel&lt;/p&gt;
+&lt;p&gt;3、将压缩包移动到
+        
+      
+    
+    </summary>
+    
+      <category term="nginx" scheme="https://huanhuanlove.github.io/categories/nginx/"/>
+    
+    
+      <category term="nginx" scheme="https://huanhuanlove.github.io/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git-独霸一方</title>
+    <link href="https://huanhuanlove.github.io/2020/07/20/git-du-ba-yi-fang/"/>
+    <id>https://huanhuanlove.github.io/2020/07/20/git-du-ba-yi-fang/</id>
+    <published>2020-07-20T09:45:34.000Z</published>
+    <updated>2020-07-21T13:45:37.555Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、git是何方神圣&quot;&gt;&lt;a href=&quot;#一、git是何方神圣&quot; class=&quot;headerlink&quot; title=&quot;一、git是何方神圣&quot;&gt;&lt;/a&gt;一、git是何方神圣&lt;/h2&gt;&lt;p&gt;Git
+        
+      
+    
+    </summary>
+    
+      <category term="git" scheme="https://huanhuanlove.github.io/categories/git/"/>
+    
+    
+      <category term="git" scheme="https://huanhuanlove.github.io/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Shiro</title>
+    <link href="https://huanhuanlove.github.io/2020/07/11/shiro/"/>
+    <id>https://huanhuanlove.github.io/2020/07/11/shiro/</id>
+    <published>2020-07-11T13:56:01.000Z</published>
+    <updated>2020-11-07T01:36:40.961Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;一、代码未动，依赖先行&lt;/p&gt;
+&lt;pre class=&quot; language-xml&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token
+        
+      
+    
+    </summary>
+    
+      <category term="shiro" scheme="https://huanhuanlove.github.io/categories/shiro/"/>
+    
+    
+      <category term="java" scheme="https://huanhuanlove.github.io/tags/java/"/>
+    
+      <category term="shiro" scheme="https://huanhuanlove.github.io/tags/shiro/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Maven依赖汇总</title>
+    <link href="https://huanhuanlove.github.io/2020/06/26/maven-yi-lai-hui-zong/"/>
+    <id>https://huanhuanlove.github.io/2020/06/26/maven-yi-lai-hui-zong/</id>
+    <published>2020-06-26T07:23:53.000Z</published>
+    <updated>2020-08-15T05:24:23.891Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Maven依赖全集&quot;&gt;&lt;a href=&quot;#Maven依赖全集&quot; class=&quot;headerlink&quot; title=&quot;Maven依赖全集&quot;&gt;&lt;/a&gt;Maven依赖全集&lt;/h1&gt;&lt;h2 id=&quot;集中定义管理依赖版本号&quot;&gt;&lt;a href=&quot;#集中定义管理依赖版本号&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="maven" scheme="https://huanhuanlove.github.io/categories/maven/"/>
+    
+    
+      <category term="maven" scheme="https://huanhuanlove.github.io/tags/maven/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>idea - EasyCode插件</title>
+    <link href="https://huanhuanlove.github.io/2020/06/26/idea-easycode-cha-jian/"/>
+    <id>https://huanhuanlove.github.io/2020/06/26/idea-easycode-cha-jian/</id>
+    <published>2020-06-26T05:47:02.000Z</published>
+    <updated>2020-07-20T10:21:41.923Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Idea-–-EasyCode插件&quot;&gt;&lt;a href=&quot;#Idea-–-EasyCode插件&quot; class=&quot;headerlink&quot; title=&quot;Idea – EasyCode插件&quot;&gt;&lt;/a&gt;Idea – EasyCode插件&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="idea" scheme="https://huanhuanlove.github.io/categories/idea/"/>
+    
+    
+      <category term="idea" scheme="https://huanhuanlove.github.io/tags/idea/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对象引用</title>
+    <link href="https://huanhuanlove.github.io/2020/05/20/dui-xiang-yin-yong/"/>
+    <id>https://huanhuanlove.github.io/2020/05/20/dui-xiang-yin-yong/</id>
+    <published>2020-05-20T07:05:21.000Z</published>
+    <updated>2020-07-20T10:14:54.981Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Java的强引用，软引用，弱引用，虚引用及其使用场景&quot;&gt;&lt;a href=&quot;#Java的强引用，软引用，弱引用，虚引用及其使用场景&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="java" scheme="https://huanhuanlove.github.io/categories/java/"/>
+    
+    
+      <category term="Java" scheme="https://huanhuanlove.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JDK动态代理</title>
+    <link href="https://huanhuanlove.github.io/2020/05/20/java-dong-tai-dai-li/"/>
+    <id>https://huanhuanlove.github.io/2020/05/20/java-dong-tai-dai-li/</id>
+    <published>2020-05-20T00:01:23.000Z</published>
+    <updated>2020-05-21T09:52:02.057Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Java动态代理&quot;&gt;&lt;a href=&quot;#Java动态代理&quot; class=&quot;headerlink&quot; title=&quot;Java动态代理&quot;&gt;&lt;/a&gt;Java动态代理&lt;/h1&gt;&lt;p&gt;说到Java中的动态代理，我们则需要回顾一种常用的设计模式 –
+        
+      
+    
+    </summary>
+    
+      <category term="java" scheme="https://huanhuanlove.github.io/categories/java/"/>
+    
+    
+      <category term="Java" scheme="https://huanhuanlove.github.io/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ContentType详解</title>
+    <link href="https://huanhuanlove.github.io/2020/05/11/contenttype-xiang-jie/"/>
+    <id>https://huanhuanlove.github.io/2020/05/11/contenttype-xiang-jie/</id>
+    <published>2020-05-10T22:38:28.000Z</published>
+    <updated>2020-11-12T13:13:59.056Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1、curl使用简介&lt;br&gt;    1.get&lt;br&gt;        示例：localhost:3000/api/basic?name=kang&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1.application/x-www-form-urlencoded
+    示例：curl
+        
+      
+    
+    </summary>
+    
+      <category term="java" scheme="https://huanhuanlove.github.io/categories/java/"/>
+    
+    
+      <category term="java" scheme="https://huanhuanlove.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Gradle的安装与配置</title>
+    <link href="https://huanhuanlove.github.io/2020/02/20/gradle/"/>
+    <id>https://huanhuanlove.github.io/2020/02/20/gradle/</id>
+    <published>2020-02-20T03:10:08.000Z</published>
+    <updated>2020-05-21T09:53:37.173Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;1-官方下载地址：&quot;&gt;&lt;a href=&quot;#1-官方下载地址：&quot; class=&quot;headerlink&quot; title=&quot;1.官方下载地址：&quot;&gt;&lt;/a&gt;1.官方下载地址：&lt;/h2&gt;&lt;p&gt;—&amp;gt; &lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="gradle" scheme="https://huanhuanlove.github.io/categories/gradle/"/>
+    
+    
+      <category term="java" scheme="https://huanhuanlove.github.io/tags/java/"/>
+    
+      <category term="gradle" scheme="https://huanhuanlove.github.io/tags/gradle/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Sql优化</title>
+    <link href="https://huanhuanlove.github.io/2020/02/03/sql-you-hua/"/>
+    <id>https://huanhuanlove.github.io/2020/02/03/sql-you-hua/</id>
+    <published>2020-02-03T10:33:02.000Z</published>
+    <updated>2020-11-07T01:46:29.796Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;1.开启慢查询&lt;/p&gt;
+&lt;h1 id=&quot;配置慢查询-通过文件保存，也可以直接存到mysql自带的表中&quot;&gt;&lt;a href=&quot;#配置慢查询-通过文件保存，也可以直接存到mysql自带的表中&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="mysql" scheme="https://huanhuanlove.github.io/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="https://huanhuanlove.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBot连接Mysql</title>
+    <link href="https://huanhuanlove.github.io/2020/02/02/springbot-lian-jie-mysql/"/>
+    <id>https://huanhuanlove.github.io/2020/02/02/springbot-lian-jie-mysql/</id>
+    <published>2020-02-02T12:02:02.000Z</published>
+    <updated>2020-08-15T06:29:58.362Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、SpringBoot集成Mybatis连接Mysql数据库配置&quot;&gt;&lt;a href=&quot;#一、SpringBoot集成Mybatis连接Mysql数据库配置&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="mybatis" scheme="https://huanhuanlove.github.io/categories/mybatis/"/>
+    
+    
+      <category term="mybatis" scheme="https://huanhuanlove.github.io/tags/mybatis/"/>
+    
+      <category term="springBoot" scheme="https://huanhuanlove.github.io/tags/springBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mybatis之操作DDL语句</title>
+    <link href="https://huanhuanlove.github.io/2020/01/11/mybatis-zhi-cao-zuo-ddl-yu-ju/"/>
+    <id>https://huanhuanlove.github.io/2020/01/11/mybatis-zhi-cao-zuo-ddl-yu-ju/</id>
+    <published>2020-01-11T11:18:44.000Z</published>
+    <updated>2020-11-07T01:30:23.306Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Mybatis之DDL语句&quot;&gt;&lt;a href=&quot;#Mybatis之DDL语句&quot; class=&quot;headerlink&quot; title=&quot;Mybatis之DDL语句&quot;&gt;&lt;/a&gt;Mybatis之DDL语句&lt;/h2&gt;&lt;h3 id=&quot;一、MySQL引言：&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="mybatis" scheme="https://huanhuanlove.github.io/categories/mybatis/"/>
+    
+    
+      <category term="java" scheme="https://huanhuanlove.github.io/tags/java/"/>
+    
+      <category term="mybatis" scheme="https://huanhuanlove.github.io/tags/mybatis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Activiti流程之路</title>
+    <link href="https://huanhuanlove.github.io/2019/12/12/activiti-liu-cheng-zhi-lu/"/>
+    <id>https://huanhuanlove.github.io/2019/12/12/activiti-liu-cheng-zhi-lu/</id>
+    <published>2019-12-11T22:11:56.000Z</published>
+    <updated>2020-11-07T01:28:37.031Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Spring Boot集成Activiti&lt;/p&gt;
+&lt;p&gt;一、何为activiti？&lt;br&gt;activiti介绍
+        
+      
+    
+    </summary>
+    
+      <category term="activiti" scheme="https://huanhuanlove.github.io/categories/activiti/"/>
+    
+    
+      <category term="activiti" scheme="https://huanhuanlove.github.io/tags/activiti/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Maven安装与配置</title>
+    <link href="https://huanhuanlove.github.io/2019/11/27/maven-an-zhuang/"/>
+    <id>https://huanhuanlove.github.io/2019/11/27/maven-an-zhuang/</id>
+    <published>2019-11-26T22:12:37.000Z</published>
+    <updated>2020-05-21T09:55:04.624Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Maven安装与配置&quot;&gt;&lt;a href=&quot;#Maven安装与配置&quot; class=&quot;headerlink&quot; title=&quot;Maven安装与配置&quot;&gt;&lt;/a&gt;Maven安装与配置&lt;/h2&gt;&lt;h3 id=&quot;1-下载&quot;&gt;&lt;a href=&quot;#1-下载&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="maven" scheme="https://huanhuanlove.github.io/categories/maven/"/>
+    
+    
+      <category term="maven" scheme="https://huanhuanlove.github.io/tags/maven/"/>
+    
+      <category term="技术流" scheme="https://huanhuanlove.github.io/tags/%E6%8A%80%E6%9C%AF%E6%B5%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用Markdown制作简历</title>
+    <link href="https://huanhuanlove.github.io/2019/11/24/markdown-jian-li/"/>
+    <id>https://huanhuanlove.github.io/2019/11/24/markdown-jian-li/</id>
+    <published>2019-11-24T07:19:54.000Z</published>
+    <updated>2020-05-21T09:54:49.198Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;工作找不到，投放简历无人应答，难道真的是你技术、人品的问题？不不，是你还缺少一份高质量的简历作为敲门砖。在很多人都在用Word制作简历的时代，你为何不用Markdown来制作呐。&lt;/p&gt;
+&lt;p&gt;&lt;i class=&quot;far fa-hand-point-right&quot;&gt;&lt;/i&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="markdown" scheme="https://huanhuanlove.github.io/categories/markdown/"/>
+    
+    
+      <category term="markdown" scheme="https://huanhuanlove.github.io/tags/markdown/"/>
+    
+      <category term="简历模板" scheme="https://huanhuanlove.github.io/tags/%E7%AE%80%E5%8E%86%E6%A8%A1%E6%9D%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot集成thymeleaf</title>
+    <link href="https://huanhuanlove.github.io/2019/11/14/springboot-ji-cheng-thymeleaf/"/>
+    <id>https://huanhuanlove.github.io/2019/11/14/springboot-ji-cheng-thymeleaf/</id>
+    <published>2019-11-14T04:35:11.000Z</published>
+    <updated>2020-07-21T13:47:47.625Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Thymeleaf&quot;&gt;&lt;a href=&quot;#Thymeleaf&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="thymeleaf" scheme="https://huanhuanlove.github.io/categories/thymeleaf/"/>
+    
+    
+      <category term="生技" scheme="https://huanhuanlove.github.io/tags/%E7%94%9F%E6%8A%80/"/>
+    
+      <category term="SpringBoot" scheme="https://huanhuanlove.github.io/tags/SpringBoot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker风流史</title>
+    <link href="https://huanhuanlove.github.io/2019/10/06/docker-feng-liu-shi/"/>
+    <id>https://huanhuanlove.github.io/2019/10/06/docker-feng-liu-shi/</id>
+    <published>2019-10-06T00:01:23.000Z</published>
+    <updated>2019-11-30T05:44:30.564Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;引入&quot;&gt;&lt;a href=&quot;#引入&quot; class=&quot;headerlink&quot; title=&quot;引入&quot;&gt;&lt;/a&gt;引入&lt;/h2&gt;&lt;p&gt;在生活中经常听到 &lt;strong&gt;&lt;em&gt;Docker&lt;/em&gt;&lt;/strong&gt; 这个词，但
+        
+      
+    
+    </summary>
+    
+      <category term="docker" scheme="https://huanhuanlove.github.io/categories/docker/"/>
+    
+    
+      <category term="Docker" scheme="https://huanhuanlove.github.io/tags/Docker/"/>
+    
+      <category term="Linux" scheme="https://huanhuanlove.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>idea神器破解及插件全集</title>
+    <link href="https://huanhuanlove.github.io/2019/10/01/idea-shen-qi-po-jie-ji-cha-jian-quan-ji/"/>
+    <id>https://huanhuanlove.github.io/2019/10/01/idea-shen-qi-po-jie-ji-cha-jian-quan-ji/</id>
+    <published>2019-10-01T00:08:08.000Z</published>
+    <updated>2020-07-20T10:21:13.786Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一：2019-3-3版本实例讲解&quot;&gt;&lt;a href=&quot;#一：2019-3-3版本实例讲解&quot; class=&quot;headerlink&quot; title=&quot;一：2019.3.3版本实例讲解&quot;&gt;&lt;/a&gt;一：2019.3.3版本实例讲解&lt;/h2&gt;&lt;h3
+        
+      
+    
+    </summary>
+    
+      <category term="idea" scheme="https://huanhuanlove.github.io/categories/idea/"/>
+    
+    
+      <category term="idea" scheme="https://huanhuanlove.github.io/tags/idea/"/>
+    
+  </entry>
+  
+</feed>
