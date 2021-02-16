@@ -858,9 +858,9 @@
       
         <tags>
             
-            <tag> 生技 </tag>
-            
             <tag> java </tag>
+            
+            <tag> 生技 </tag>
             
         </tags>
       
@@ -874,6 +874,31 @@
       <url>/2019/07/31/ru-he-you-ya-an-zhuang-mysql/</url>
       
         <content type="html"><![CDATA[<h1 id="MySQL如何安装？"><a href="#MySQL如何安装？" class="headerlink" title="MySQL如何安装？"></a>MySQL如何安装？</h1><h2 id="1、下载安装包"><a href="#1、下载安装包" class="headerlink" title="1、下载安装包"></a>1、下载安装包</h2><p>MySQL解压版下载地址：<a href="https://dev.mysql.com/downloads/file/?id=479669" title="下载地址" target="_blank" rel="noopener">https://dev.mysql.com/downloads/file/?id=479669</a>  ，直接点击最下方的“No thanks, just start my download.”即可开始下载<br>注：安装数据库时，登录用户必须拥有Administrator权限。</p><h2 id="2、解压"><a href="#2、解压" class="headerlink" title="2、解压"></a>2、解压</h2><p>将压缩包解压后放到将要安装的目录下，解压后的文件结构如图：  </p><p><img src="https://img-blog.csdn.net/20180804090524920?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzMyMzYzNDAx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="目录结构"></p><p>从解压的文档结构中，没有my.ini配置文件，需要自己创建my.ini文件。</p><h2 id="3、配置my-ini文件"><a href="#3、配置my-ini文件" class="headerlink" title="3、配置my.ini文件"></a>3、配置my.ini文件</h2><p>数据库服务端配置项  </p><p>[mysqld]<br>basedir=D:\Programs\MySQL\MySQL-8.0.12-winx64    # 数据库路径<br>datadir=D:\Programs\MySQL\data   # 数据路径<br>port=3306  # 端口号<br>character-set-server=utf8mb4   # 默认字符集<br>default-storage-engine=INNODB   # 存储引擎<br>[mysql]<br>default-character-set=utf8mb4   # 默认字符集<br>[client]<br>default-character-set=utf8mb4   # 连接客户端配置项</p><h2 id="4、初始化MySQL"><a href="#4、初始化MySQL" class="headerlink" title="4、初始化MySQL"></a>4、初始化MySQL</h2><p>打开终端，进入到数据安装路径下的bin目录下：<br><img src="https://img-blog.csdn.net/20180804143335884?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzMyMzYzNDAx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="图一">  </p><p>在终端中输入指令“mysqld –initialize –console”，按回车键即可完成初始化：  <img src="https://img-blog.csdn.net/20180804144502260?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzMyMzYzNDAx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="图二">  </p><p>注：初始化完成后，不要关闭窗口，因为这里会生成root用户的密码，图中的“p=brffHdg4T5”即是随机密码。<br>当然，还有一种初始化方式是不会产生随机密码的，但是也需要在正式使用数据库前设置密码，这个初始化指令为“mysqld –initialize-insecure –console”。当使用无随机密码初始化数据库时，首次登陆数据时需要使用“mysql -u root –skip-password”，即跳过密码验证方式登陆。</p><h2 id="5、数据库服务安装"><a href="#5、数据库服务安装" class="headerlink" title="5、数据库服务安装"></a>5、数据库服务安装</h2><p>打开终端，进入到数据安装路径下的bin目录下，如下图。 使用指令“mysqld –install”即可完成服务的安装：<br><img src="https://img-blog.csdn.net/20180804150640820?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzMyMzYzNDAx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="图三">  </p><p>注：在注册服务时，一定要使用管理员身份执行，否则安装服务时会被拒绝。<br>同时，也可以使用指令“mysqld –remove”来将注册的服务给移除。<br>事实上，注册服务的完整指令是“mysqld –install 服务名”，若是服务名不写则默认为“MySQL”，服务移除指令同样是“mysqld –remove 服务名”，默认值为“MySQL”。</p><h2 id="6、服务启动"><a href="#6、服务启动" class="headerlink" title="6、服务启动"></a>6、服务启动</h2><p>在终端中使用指令“net start MySQL”，即可启动数据库服务：<br><img src="https://img-blog.csdn.net/20180804152117396?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzMyMzYzNDAx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="图四">  </p><p>验证服务是否已经启动，在终端页面尝试能否登陆数据库，这里需要输入的密码即是在步骤4中初始化时系统生成的随机密码，输入即可：<br><img src="https://img-blog.csdn.net/20180804153049428?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzMyMzYzNDAx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="图五">  </p><p>登陆成功！在执行指令前，系统会强制要求更改初始化时的随机密码：<br><img src="https://img-blog.csdn.net/20180804153556109?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzMyMzYzNDAx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="图六">  </p><p>使用指令“ ALTER USER ‘root’@’localhost’ IDENTIFIED BY ‘新密码’ ”，按回车键即可： </p><p>修改完密码后，就可以正常使用数据库啦！<br><img src="https://img-blog.csdn.net/20180804154426904?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzMyMzYzNDAx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="图七">  </p><p>使用其他工具连接即可–<br><img src="https://img-blog.csdn.net/20180804154639820?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2JhaWR1XzMyMzYzNDAx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="图八"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术宅 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 生技 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何优雅安装jdk？</title>
+      <link href="/2019/07/31/jdk-an-zhuang-jiao-cheng/"/>
+      <url>/2019/07/31/jdk-an-zhuang-jiao-cheng/</url>
+      
+        <content type="html"><![CDATA[<h1 id="jdk如何安装？"><a href="#jdk如何安装？" class="headerlink" title="jdk如何安装？"></a>jdk如何安装？</h1><h2 id="1、首先要下载jdk的安装包："><a href="#1、首先要下载jdk的安装包：" class="headerlink" title="1、首先要下载jdk的安装包："></a><strong>1、首先要下载jdk的安装包：</strong></h2><p>根据自己电脑的配置去下载相应的版本，下载地址：<a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" title="下载地址" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-a499c87ae28a7cff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/809/format/webp" alt="图一">  </p><p>接受条件，选择最后一个！<br><img src="https://upload-images.jianshu.io/upload_images/13994765-ea6037667314435b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/748/format/webp" alt="图二">  </p><p>下载完成后双击打开！（可更改安装路径）<br><img src="https://upload-images.jianshu.io/upload_images/13994765-8eebc5b079a2f506.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/625/format/webp" alt="图三"> </p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-1e2466b8dc64f832.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/625/format/webp" alt="图四">  </p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-0f6bc1ea945c14ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/627/format/webp" alt="图五">  </p><p>将上述的步骤做好了之后，我们就可以测试了，windows+R输入cmd进入dos系统，输入命令：java   出现下图所示：  </p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-d5f97ec8fc038bdb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/745/format/webp" alt="图六">  </p><h2 id="2、配置jdk的环境变量"><a href="#2、配置jdk的环境变量" class="headerlink" title="2、配置jdk的环境变量"></a><strong>2、配置jdk的环境变量</strong></h2><p><img src="https://upload-images.jianshu.io/upload_images/13994765-ddf4353d3bcedad8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/686/format/webp" alt="图一">  </p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-eebe5434d0881a31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/613/format/webp" alt="图二">  </p><p>新建JAVA_HOME：<br><img src="https://upload-images.jianshu.io/upload_images/13994765-fd11f1e1927ed19d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/816/format/webp" alt="图三">  </p><p>在path中添加：<br><img src="https://upload-images.jianshu.io/upload_images/13994765-b99723d042806777.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/677/format/webp" alt="图四">  </p><p>新建classpath:<img src="https://upload-images.jianshu.io/upload_images/13994765-3a3cd73e6145d49d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/638/format/webp" alt="图五">  </p><p>最后在cmd命令框中输入java -version 出现版本即安装配置成功。</p>]]></content>
       
       
       <categories>
@@ -911,31 +936,6 @@
         <tags>
             
             <tag> 生活美文 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>如何优雅安装jdk？</title>
-      <link href="/2019/07/31/jdk-an-zhuang-jiao-cheng/"/>
-      <url>/2019/07/31/jdk-an-zhuang-jiao-cheng/</url>
-      
-        <content type="html"><![CDATA[<h1 id="jdk如何安装？"><a href="#jdk如何安装？" class="headerlink" title="jdk如何安装？"></a>jdk如何安装？</h1><h2 id="1、首先要下载jdk的安装包："><a href="#1、首先要下载jdk的安装包：" class="headerlink" title="1、首先要下载jdk的安装包："></a><strong>1、首先要下载jdk的安装包：</strong></h2><p>根据自己电脑的配置去下载相应的版本，下载地址：<a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" title="下载地址" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-a499c87ae28a7cff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/809/format/webp" alt="图一">  </p><p>接受条件，选择最后一个！<br><img src="https://upload-images.jianshu.io/upload_images/13994765-ea6037667314435b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/748/format/webp" alt="图二">  </p><p>下载完成后双击打开！（可更改安装路径）<br><img src="https://upload-images.jianshu.io/upload_images/13994765-8eebc5b079a2f506.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/625/format/webp" alt="图三"> </p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-1e2466b8dc64f832.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/625/format/webp" alt="图四">  </p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-0f6bc1ea945c14ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/627/format/webp" alt="图五">  </p><p>将上述的步骤做好了之后，我们就可以测试了，windows+R输入cmd进入dos系统，输入命令：java   出现下图所示：  </p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-d5f97ec8fc038bdb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/745/format/webp" alt="图六">  </p><h2 id="2、配置jdk的环境变量"><a href="#2、配置jdk的环境变量" class="headerlink" title="2、配置jdk的环境变量"></a><strong>2、配置jdk的环境变量</strong></h2><p><img src="https://upload-images.jianshu.io/upload_images/13994765-ddf4353d3bcedad8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/686/format/webp" alt="图一">  </p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-eebe5434d0881a31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/613/format/webp" alt="图二">  </p><p>新建JAVA_HOME：<br><img src="https://upload-images.jianshu.io/upload_images/13994765-fd11f1e1927ed19d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/816/format/webp" alt="图三">  </p><p>在path中添加：<br><img src="https://upload-images.jianshu.io/upload_images/13994765-b99723d042806777.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/677/format/webp" alt="图四">  </p><p>新建classpath:<img src="https://upload-images.jianshu.io/upload_images/13994765-3a3cd73e6145d49d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/638/format/webp" alt="图五">  </p><p>最后在cmd命令框中输入java -version 出现版本即安装配置成功。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 技术宅 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 生技 </tag>
             
         </tags>
       
