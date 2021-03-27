@@ -894,31 +894,6 @@
     
     
     <entry>
-      <title>如何优雅安装jdk？</title>
-      <link href="/2019/07/31/jdk-an-zhuang-jiao-cheng/"/>
-      <url>/2019/07/31/jdk-an-zhuang-jiao-cheng/</url>
-      
-        <content type="html"><![CDATA[<h1 id="jdk如何安装？"><a href="#jdk如何安装？" class="headerlink" title="jdk如何安装？"></a>jdk如何安装？</h1><h2 id="1、首先要下载jdk的安装包："><a href="#1、首先要下载jdk的安装包：" class="headerlink" title="1、首先要下载jdk的安装包："></a><strong>1、首先要下载jdk的安装包：</strong></h2><p>根据自己电脑的配置去下载相应的版本，下载地址：<a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" title="下载地址" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-a499c87ae28a7cff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/809/format/webp" alt="图一">  </p><p>接受条件，选择最后一个！<br><img src="https://upload-images.jianshu.io/upload_images/13994765-ea6037667314435b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/748/format/webp" alt="图二">  </p><p>下载完成后双击打开！（可更改安装路径）<br><img src="https://upload-images.jianshu.io/upload_images/13994765-8eebc5b079a2f506.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/625/format/webp" alt="图三"> </p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-1e2466b8dc64f832.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/625/format/webp" alt="图四">  </p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-0f6bc1ea945c14ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/627/format/webp" alt="图五">  </p><p>将上述的步骤做好了之后，我们就可以测试了，windows+R输入cmd进入dos系统，输入命令：java   出现下图所示：  </p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-d5f97ec8fc038bdb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/745/format/webp" alt="图六">  </p><h2 id="2、配置jdk的环境变量"><a href="#2、配置jdk的环境变量" class="headerlink" title="2、配置jdk的环境变量"></a><strong>2、配置jdk的环境变量</strong></h2><p><img src="https://upload-images.jianshu.io/upload_images/13994765-ddf4353d3bcedad8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/686/format/webp" alt="图一">  </p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-eebe5434d0881a31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/613/format/webp" alt="图二">  </p><p>新建JAVA_HOME：<br><img src="https://upload-images.jianshu.io/upload_images/13994765-fd11f1e1927ed19d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/816/format/webp" alt="图三">  </p><p>在path中添加：<br><img src="https://upload-images.jianshu.io/upload_images/13994765-b99723d042806777.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/677/format/webp" alt="图四">  </p><p>新建classpath:<img src="https://upload-images.jianshu.io/upload_images/13994765-3a3cd73e6145d49d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/638/format/webp" alt="图五">  </p><p>最后在cmd命令框中输入java -version 出现版本即安装配置成功。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 技术宅 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 生技 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>名人十言</title>
       <link href="/2019/07/31/ming-ren-shi-yan/"/>
       <url>/2019/07/31/ming-ren-shi-yan/</url>
@@ -936,6 +911,31 @@
         <tags>
             
             <tag> 生活美文 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>如何优雅安装jdk？</title>
+      <link href="/2019/07/31/jdk-an-zhuang-jiao-cheng/"/>
+      <url>/2019/07/31/jdk-an-zhuang-jiao-cheng/</url>
+      
+        <content type="html"><![CDATA[<h1 id="jdk如何安装？"><a href="#jdk如何安装？" class="headerlink" title="jdk如何安装？"></a>jdk如何安装？</h1><h2 id="1、首先要下载jdk的安装包："><a href="#1、首先要下载jdk的安装包：" class="headerlink" title="1、首先要下载jdk的安装包："></a><strong>1、首先要下载jdk的安装包：</strong></h2><p>根据自己电脑的配置去下载相应的版本，下载地址：<a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" title="下载地址" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/index.html</a></p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-a499c87ae28a7cff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/809/format/webp" alt="图一">  </p><p>接受条件，选择最后一个！<br><img src="https://upload-images.jianshu.io/upload_images/13994765-ea6037667314435b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/748/format/webp" alt="图二">  </p><p>下载完成后双击打开！（可更改安装路径）<br><img src="https://upload-images.jianshu.io/upload_images/13994765-8eebc5b079a2f506.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/625/format/webp" alt="图三"> </p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-1e2466b8dc64f832.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/625/format/webp" alt="图四">  </p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-0f6bc1ea945c14ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/627/format/webp" alt="图五">  </p><p>将上述的步骤做好了之后，我们就可以测试了，windows+R输入cmd进入dos系统，输入命令：java   出现下图所示：  </p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-d5f97ec8fc038bdb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/745/format/webp" alt="图六">  </p><h2 id="2、配置jdk的环境变量"><a href="#2、配置jdk的环境变量" class="headerlink" title="2、配置jdk的环境变量"></a><strong>2、配置jdk的环境变量</strong></h2><p><img src="https://upload-images.jianshu.io/upload_images/13994765-ddf4353d3bcedad8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/686/format/webp" alt="图一">  </p><p><img src="https://upload-images.jianshu.io/upload_images/13994765-eebe5434d0881a31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/613/format/webp" alt="图二">  </p><p>新建JAVA_HOME：<br><img src="https://upload-images.jianshu.io/upload_images/13994765-fd11f1e1927ed19d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/816/format/webp" alt="图三">  </p><p>在path中添加：<br><img src="https://upload-images.jianshu.io/upload_images/13994765-b99723d042806777.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/677/format/webp" alt="图四">  </p><p>新建classpath:<img src="https://upload-images.jianshu.io/upload_images/13994765-3a3cd73e6145d49d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/638/format/webp" alt="图五">  </p><p>最后在cmd命令框中输入java -version 出现版本即安装配置成功。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术宅 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 生技 </tag>
             
         </tags>
       
